@@ -10,7 +10,12 @@ add_subdirectory(ThirdParty/glfw)
 add_subdirectory(ThirdParty/glm)
 
 # 添加源文件
-add_executable(VulkanTutorial main.cpp)
+file(GLOB HEADERS "src/*.h")
+file(GLOB SOURCES "src/*.cpp" main.cpp)
+add_executable(VulkanTutorial
+    ${HEADERS}
+    ${SOURCES}
+)
 
 target_include_directories(VulkanTutorial
     PUBLIC
