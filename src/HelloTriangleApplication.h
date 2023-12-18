@@ -99,4 +99,6 @@ private:
 
     VkRenderPass renderPass;
     VkPipelineLayout pipelineLayout;
+
+    VkPipeline graphicsPipeline;
 };
