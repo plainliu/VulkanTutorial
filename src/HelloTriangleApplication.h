@@ -65,6 +65,7 @@ private:
     void createImageViews();
     VkShaderModule createShaderModule(const std::vector<char>& code);
     void createGraphicsPipeline();
+    void createRenderPass();
 
     GLFWwindow* window = nullptr;
     VkInstance instance = nullptr;
@@ -96,5 +97,6 @@ private:
 
     std::vector<VkImageView> swapChainImageViews;
 
+    VkRenderPass renderPass;
     VkPipelineLayout pipelineLayout;
 };
