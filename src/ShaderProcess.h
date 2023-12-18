@@ -4,7 +4,6 @@
 class ShaderProcess
 {
 public:
-    static void compileShaders();
     static void compileShader(const std::string& fileName);
 
     static std::string getRootPath();

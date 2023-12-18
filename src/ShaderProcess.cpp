@@ -8,27 +8,6 @@
 const char* ShaderPath = "shaders";
 const char* ComplerCommand = "glslc.exe %s -o %s";
 
-void ShaderProcess::compileShaders()
-{
-    namespace fs = std::filesystem;
-
-    // enum shader and compile
-    for (const auto& entry : fs::recursive_directory_iterator(getRootPath() + "/" + ShaderPath))
-    {
-        const auto filenameStr = entry.path().filename().string();
-        if (entry.is_directory())
-        {
-            std::cout << "dir:  " << filenameStr << '\n';
-        }
-        else if (entry.is_regular_file())
-        {
-            std::cout << "file: " << filenameStr << '\n';
-        }
-        else
-            std::cout << "??    " << filenameStr << '\n';
-    }
-}
-
 void ShaderProcess::compileShader(const std::string& fileName)
 {
     auto absPath = getRootPath() + "/" + fileName;
