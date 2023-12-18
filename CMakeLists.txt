@@ -4,6 +4,8 @@ project(VulkanTutorial)
 
 set(CMAKE_CXX_STANDARD 17)
 
+add_definitions(-DROOT_SOURCE_DIR="${CMAKE_CURRENT_SOURCE_DIR}")
+
 find_package(Vulkan REQUIRED)
 
 add_subdirectory(ThirdParty/glfw)

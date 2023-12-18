@@ -1,4 +1,4 @@
-
+﻿
 
 #define GLFW_INCLUDE_VULKAN
 #include <GLFW/glfw3.h>
@@ -63,6 +63,9 @@ private:
     VkExtent2D chooseSwapExtent(const VkSurfaceCapabilitiesKHR& capabilities);
     void createSwapChain();
     void createImageViews();
+    VkShaderModule createShaderModule(const std::vector<char>& code);
+    void createGraphicsPipeline();
+    void createRenderPass();
 
     GLFWwindow* window = nullptr;
     VkInstance instance = nullptr;
@@ -93,4 +96,9 @@ private:
     VkExtent2D swapChainExtent;
 
     std::vector<VkImageView> swapChainImageViews;
+
+    VkRenderPass renderPass;
+    VkPipelineLayout pipelineLayout;
+
+    VkPipeline graphicsPipeline;
 };
