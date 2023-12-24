@@ -44,6 +44,7 @@ private:
 
     void initVulkan();
     void clearVulkan();
+    void drawFrame();
     void createInstance();
     void printAvaliableExtensions();
     bool checkValidationLayerSupport();
@@ -66,6 +67,11 @@ private:
     VkShaderModule createShaderModule(const std::vector<char>& code);
     void createGraphicsPipeline();
     void createRenderPass();
+    void createFramebuffers();
+    void createCommandPool();
+    void createCommandBuffer();
+    void recordCommandBuffer(VkCommandBuffer commandBuffer, uint32_t imageIndex);
+    void createSyncObjects();
 
     GLFWwindow* window = nullptr;
     VkInstance instance = nullptr;
@@ -101,4 +107,13 @@ private:
     VkPipelineLayout pipelineLayout;
 
     VkPipeline graphicsPipeline;
+
+    std::vector<VkFramebuffer> swapChainFramebuffers;
+
+    VkCommandPool commandPool;
+    VkCommandBuffer commandBuffer;
+
+    VkSemaphore imageAvailableSemaphore;
+    VkSemaphore renderFinishedSemaphore;
+    VkFence inFlightFence;
 };
