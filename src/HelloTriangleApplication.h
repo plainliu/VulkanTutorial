@@ -73,6 +73,9 @@ private:
     void recordCommandBuffer(VkCommandBuffer commandBuffer, uint32_t imageIndex);
     void createSyncObjects();
 
+    void cleanupSwapChain();
+    void recreateSwapChain();
+
     GLFWwindow* window = nullptr;
     VkInstance instance = nullptr;
 
@@ -119,4 +122,7 @@ private:
     std::vector<VkSemaphore> imageAvailableSemaphores;
     std::vector<VkSemaphore> renderFinishedSemaphores;
     std::vector<VkFence> inFlightFences;
+
+public:
+    bool framebufferResized = false;
 };
